@@ -256,7 +256,7 @@ Die schönste Demo ist fast die Meta-Demo: OpenClaw erklärt hier nicht nur sich
 </div>
 
 <div class="source mt-6">
-Repo: <https://github.com/Clausinho/slidev-openclaw-talk>
+Repo: <a href="https://github.com/Clausinho/slidev-openclaw-talk" target="_blank">github.com/Clausinho/slidev-openclaw-talk</a>
 </div>
 
 ---
