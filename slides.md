@@ -191,36 +191,36 @@ layout: two-cols
 # Beispiel 3
 ## Mail-Triage mit lokaler Pipeline
 
-<div class="mt-6 space-y-3 text-lg">
+<div class="mt-4 space-y-2 text-base leading-7">
 
-- Für Mail-Triage gibt es bei mir einen <b>lokalen Runner</b>
-- Ergebnisse landen als <b>Reports</b>, nicht in irgendeiner Blackbox
-- Relevante Mails können gefiltert, gebündelt und kurz zurückgespielt werden
-- Das ist vor allem ein <b>Overwhelm-Problem</b>, nicht nur ein NLP-Problem
+- Für Mail-Triage gibt es einen <b>lokalen Runner</b>
+- Ergebnisse landen als <b>Reports</b>, nicht in einer Blackbox
+- Relevante Mails werden gefiltert und kurz zurückgespielt
+- Ziel: <b>weniger Overwhelm und weniger Kontextwechsel</b>
 
 </div>
 
-<div class="note mt-8">
-Der Mehrwert ist nicht „AI liest Mails“.<br>
-Der Mehrwert ist: <b>Ich sehe schneller, worauf ich wirklich reagieren muss.</b>
+<div class="note mt-5">
+Nicht: „AI liest halt Mails.“<br>
+Sondern: <b>Ich sehe schneller, worauf ich reagieren muss.</b>
 </div>
 
 ::right::
 
-<div class="card mt-5">
+<div class="card mt-3">
   <div class="card-title">Lokaler Flow</div>
-  <div class="text-sm mt-3 leading-6">
-    Inbox → Mail-Triage-Runner → Relevanzschema → Report → kurze Rückmeldung
+  <div class="text-sm mt-2 leading-6">
+    Inbox → Triage-Runner → Relevanzschema → Report → kurze Rückmeldung
   </div>
 </div>
 
-<div class="mt-6 rounded-2xl border border-gray-300 p-4 bg-gray-50 dark:bg-zinc-900 text-sm">
+<div class="mt-4 rounded-2xl border border-gray-300 p-3 bg-gray-50 dark:bg-zinc-900 text-xs leading-5">
   <div><b>Konkret im Setup:</b></div>
   <div class="mt-2 font-mono">~/openclaw/scripts/mail_triage_runner.py</div>
   <div class="font-mono">~/openclaw/reports/mail-triage/</div>
 </div>
 
-<div class="source mt-6">
+<div class="source mt-4">
 Quelle (eigene Praxis): lokaler Mail-Triage-Runner im OpenClaw-Workspace.
 </div>
 
