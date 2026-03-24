@@ -28,3 +28,4 @@ Das Deck basiert auf echten Beispielen aus deinem Setup:
 - WhatsApp -> Tagespriorisierung aus lokalem Kalenderkontext
 - Mail-Triage über lokalen Runner
 - Proaktive Check-ins / Reminder über OpenClaw
+- Meta: Das Deck selbst wurde über das OpenClaw TUI erstellt, als PDF exportiert und in ein eigenes GitHub-Repo gepusht

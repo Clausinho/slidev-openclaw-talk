@@ -18,48 +18,105 @@ css: ./style.css
 ### Vom Chatbot zum persönlichen Ops-Agenten
 
 <div class="mt-8 text-lg opacity-80 max-w-3xl mx-auto">
-OpenClaw ist für mich nicht interessant, weil es „ein LLM mit Chatfenster“ ist —
-sondern weil es <span class="accent">an echte Kanäle, lokale Daten und Workflows</span> andockt.
+Nicht nur <span class="accent">antworten</span>, sondern <span class="accent">Kontext ziehen, priorisieren, erinnern und handeln</span>.
 </div>
 
-<div class="mt-12 text-sm opacity-60">
+<div class="mt-10 text-sm opacity-70 max-w-3xl mx-auto">
+Meta-Pointe: Dieses Deck wurde selbst mit <b>OpenClaw</b> erstellt —
+und zwar direkt über das <b>OpenClaw TUI</b> im laufenden System.
+</div>
+
+<div class="mt-10 text-sm opacity-60">
 Claus Käpplinger · Kurzvorstellung / ZeitgAIst-Runde
 </div>
-
-<!--
-Hook:
-Ich will nicht noch einen Chatbot. Ich will einen Assistenten, der in meinem echten Alltag operieren kann.
--->
 
 ---
 layout: center
 class: text-center
 ---
 
-# Die Kernidee
+# Das eigentliche Problem
 
 <div class="text-3xl leading-tight max-w-4xl mx-auto">
-<span class="accent">Chat + Tools + lokale Daten + proaktive Ausführung</span><br>
-statt nur <span class="opacity-60">Prompt rein, Text raus</span>
+Nicht zu wenig AI.<br>
+<span class="accent">Zu viele offene Schleifen in zu vielen Kanälen.</span>
 </div>
 
-<div class="mt-10 grid grid-cols-4 gap-4 text-left text-sm max-w-5xl mx-auto">
+<div class="mt-10 grid grid-cols-3 gap-5 text-left max-w-5xl mx-auto">
   <div class="card">
-    <div class="card-title">Input</div>
-    WhatsApp, Webchat, Heartbeats, Cron, Dateien, Kalender, Mail
+    <div class="card-title">Fragmentierung</div>
+    WhatsApp, Mail, Kalender, Dateien, Browser, Erinnerungen — alles lebt getrennt.
   </div>
   <div class="card">
-    <div class="card-title">Kontext</div>
-    Verlauf, Memory, lokale Files, Tageskontext, persönliche Regeln
+    <div class="card-title">Overwhelm</div>
+    Das Problem ist oft nicht fehlende Information, sondern fehlende Priorisierung.
   </div>
   <div class="card">
-    <div class="card-title">Aktion</div>
-    prüfen, priorisieren, erinnern, schreiben, triggern, zusammenfassen
+    <div class="card-title">Reibung</div>
+    Selbst kleine nächste Schritte sterben an Kontextwechseln und Mikro-Orga.
+  </div>
+</div>
+
+---
+layout: center
+class: text-center
+---
+
+# Meine These
+
+<div class="text-3xl leading-tight max-w-4xl mx-auto">
+OpenClaw wird spannend, wenn es<br>
+<span class="accent">zwischen Kanälen und Handlung</span> sitzt.
+</div>
+
+<div class="mt-10 text-xl opacity-85 max-w-4xl mx-auto">
+Also nicht nur: <span class="opacity-60">„Prompt rein, Text raus“</span><br>
+sondern: <span class="accent">Chat + lokale Daten + Tools + proaktive Ausführung</span>
+</div>
+
+---
+
+# Architektur-Idee dahinter
+
+<div class="mt-6 grid grid-cols-4 gap-4 text-left text-sm max-w-6xl mx-auto">
+  <div class="card">
+    <div class="card-title">1. Interfaces</div>
+    WhatsApp, Web UI, CLI, weitere Channels
   </div>
   <div class="card">
-    <div class="card-title">Output</div>
-    kurze Nachricht, Reminder, Tagesfokus, Report, Follow-up
+    <div class="card-title">2. Gateway</div>
+    Ingestion, Access Control, Routing, Delivery
   </div>
+  <div class="card">
+    <div class="card-title">3. Runtime</div>
+    Kontext bauen, Modell aufrufen, Tools steuern
+  </div>
+  <div class="card">
+    <div class="card-title">4. State</div>
+    Sessions, Memory, Files, Reports, Cron, Browser
+  </div>
+</div>
+
+<div class="mt-8">
+
+```mermaid
+flowchart LR
+    A[Channels / UI / CLI] --> B[Gateway]
+    B --> C[Access Control & Routing]
+    C --> D[Agent Runtime]
+    D --> E[Context Assembly]
+    D --> F[Model Invocation]
+    D --> G[Tool Execution]
+    E --> H[Sessions / Memory / Files]
+    G --> I[Browser / Scripts / Cron / Messaging]
+    F --> J[Response Delivery]
+    I --> J
+```
+
+</div>
+
+<div class="source mt-5">
+Inspiriert von Paolo Perrotta, <i>OpenClaw Architecture, Explained: How It Works</i>, insb. Architekturüberblick und „Phase 2: Access Control & Routing“.
 </div>
 
 ---
@@ -91,19 +148,47 @@ Sondern eher: „Du hast 3 feste Blöcke — dazwischen genau ein sinnvolles Arb
 </div>
 
 <div class="source mt-6">
-Bezug: lokaler Kalender via <b>vdirsyncer/khal</b>, Fokus auf echte Commitments.
+Quelle (eigene Praxis): lokaler Kalender via <b>vdirsyncer/khal</b>; Fokus auf echte Commitments.
 </div>
-
-<!--
-Memory reference:
-Source: memory/2026-03-23
--->
 
 ---
 layout: two-cols
 ---
 
 # Beispiel 2
+## Proaktive Assistenz auf WhatsApp
+
+<div class="mt-6 space-y-3 text-lg">
+
+- tägliche <b>Check-ins</b>, <b>Shutdowns</b> und <b>Reminder</b>
+- nicht nur auf Anfrage, sondern auch <b>zum richtigen Zeitpunkt</b>
+- mit Guardrails: dedizierter Bot interaktiv, Hauptkanal kontrollierter
+- dadurch wird AI zu einer <b>Assistenzschicht im Alltag</b>
+
+</div>
+
+<div class="note mt-8">
+Das ist für mich der eigentliche Sprung:<br>
+<b>von reaktivem Chat zu leichter proaktiver Handlungsunterstützung.</b>
+</div>
+
+::right::
+
+<div class="mock-chat mt-4">
+  <div class="msg bot">Daily check-in. Reply with 4 lines...</div>
+  <div class="msg bot">Bedtime ramp (15 min). Goal: devices OFF at 21:00.</div>
+  <div class="msg bot">Kurz-Check: Was machst du gerade? Bist du auf deinem BIG 1?</div>
+</div>
+
+<div class="source mt-6">
+Quelle (eigene Praxis): WhatsApp-Rollenmodell + tägliche Cron-/Heartbeat-Check-ins.
+</div>
+
+---
+layout: two-cols
+---
+
+# Beispiel 3
 ## Mail-Triage mit lokaler Pipeline
 
 <div class="mt-6 space-y-3 text-lg">
@@ -135,95 +220,43 @@ Der Mehrwert ist: <b>Ich sehe schneller, worauf ich wirklich reagieren muss.</b>
   <div class="font-mono">~/openclaw/reports/mail-triage/</div>
 </div>
 
-<!--
-Memory reference:
-Source: memory/2026-03-23
--->
-
----
-layout: two-cols
----
-
-# Beispiel 3
-## Proaktive Assistenz auf WhatsApp
-
-<div class="mt-6 space-y-3 text-lg">
-
-- tägliche <b>Check-ins</b>, <b>Shutdowns</b> und <b>Reminder</b>
-- nicht nur auf Anfrage, sondern auch <b>zum richtigen Zeitpunkt</b>
-- mit Guardrails: dedizierter Bot interaktiv, Hauptkanal kontrollierter
-- dadurch wird AI zu einer <b>Assistenzschicht im Alltag</b>
-
+<div class="source mt-6">
+Quelle (eigene Praxis): lokaler Mail-Triage-Runner im OpenClaw-Workspace.
 </div>
 
-<div class="note mt-8">
-Das ist für mich der eigentliche Sprung:<br>
-<b>von reaktivem Chat zu leicht proaktiver Handlungsunterstützung.</b>
+---
+
+# Die Meta-Ebene: Dieses Deck wurde mit OpenClaw gebaut
+
+<div class="mt-6 grid grid-cols-5 gap-4 text-left text-sm max-w-6xl mx-auto">
+  <div class="card">
+    <div class="card-title">1. Briefing</div>
+    Idee und Zielgruppe per Chat geklärt
+  </div>
+  <div class="card">
+    <div class="card-title">2. Recall</div>
+    persönliche Memory DB nach echten Beispielen durchsucht
+  </div>
+  <div class="card">
+    <div class="card-title">3. TUI</div>
+    das Deck direkt über das <b>OpenClaw TUI</b> erzeugt und iteriert
+  </div>
+  <div class="card">
+    <div class="card-title">4. Build</div>
+    lokal als Slidev-Deck gebaut und als PDF exportiert
+  </div>
+  <div class="card">
+    <div class="card-title">5. Delivery</div>
+    eigenes GitHub-Repo angelegt und gepusht
+  </div>
 </div>
 
-::right::
-
-<div class="mock-chat mt-4">
-  <div class="msg bot">Daily check-in. Reply with 4 lines...</div>
-  <div class="msg bot">Bedtime ramp (15 min). Goal: devices OFF at 21:00.</div>
-  <div class="msg bot">Kurz-Check: Was machst du gerade? Bist du auf deinem BIG 1?</div>
+<div class="note mt-10 max-w-5xl mx-auto">
+Die schönste Demo ist fast die Meta-Demo: OpenClaw erklärt hier nicht nur sich selbst — es war auch das Werkzeug, mit dem diese Präsentation über das TUI gebaut, exportiert und veröffentlicht wurde.
 </div>
 
 <div class="source mt-6">
-Bezug: WhatsApp-Rollenmodell + proaktive Check-ins / Heartbeats.
-</div>
-
-<!--
-Memory reference:
-Source: MEMORY.md
-Source: sessions/35419351-cdc1-4c2d-b1ee-bd249efc829c#L49-L64
--->
-
----
-
-# Technisch gesehen
-
-<div class="mt-6 grid grid-cols-3 gap-5 text-left">
-  <div class="card">
-    <div class="card-title">Interfaces</div>
-    <ul class="mt-3 text-sm leading-7">
-      <li>WhatsApp</li>
-      <li>Webchat</li>
-      <li>Cron / Heartbeats</li>
-      <li>Browser / lokale Files</li>
-    </ul>
-  </div>
-  <div class="card">
-    <div class="card-title">Reasoning Layer</div>
-    <ul class="mt-3 text-sm leading-7">
-      <li>Session-Kontext</li>
-      <li>Memory / Regeln</li>
-      <li>Entscheidung: antworten, schweigen oder handeln</li>
-    </ul>
-  </div>
-  <div class="card">
-    <div class="card-title">Execution Layer</div>
-    <ul class="mt-3 text-sm leading-7">
-      <li>lokale Scripts</li>
-      <li>Dateioperationen</li>
-      <li>Nachrichten / Reminder</li>
-      <li>Berichte / Automationen</li>
-    </ul>
-  </div>
-</div>
-
-<div class="mt-10">
-
-```mermaid
-flowchart LR
-    A[Channel / Trigger] --> B[OpenClaw Session]
-    B --> C[Memory + Files + Context]
-    B --> D[Tools + Scripts + Browser]
-    C --> E[Decision]
-    D --> E
-    E --> F[Short reply / Reminder / Report / Action]
-```
-
+Repo: <https://github.com/Clausinho/slidev-openclaw-talk>
 </div>
 
 ---
@@ -231,15 +264,11 @@ layout: center
 class: text-center
 ---
 
-# Warum ich das spannend finde
+# Meine Narrative in einem Satz
 
-<div class="text-2xl max-w-4xl mx-auto leading-relaxed">
-Ich bekomme nicht einfach nur <span class="opacity-70">„mehr AI“</span>,
-sondern <span class="accent">mehr Handlungskraft bei weniger mentalem Overhead</span>.
-</div>
-
-<div class="mt-10 text-lg opacity-80">
-Gerade bei Kalender, Mail, Priorisierung und Follow-ups ist das sofort praktisch.
+<div class="text-3xl max-w-4xl mx-auto leading-relaxed">
+OpenClaw ist für mich kein weiterer smarter Chatbot,
+sondern <span class="accent">eine persönliche Runtime, die zwischen meinen Kanälen und meinen nächsten sinnvollen Handlungen sitzt</span>.
 </div>
 
 ---
@@ -249,4 +278,4 @@ class: text-center
 
 # Danke
 
-### Wenn ihr wollt, zeige ich danach kurz den WhatsApp-/Workflow-Teil live.
+### Wenn ihr wollt, zeige ich danach kurz den WhatsApp-/TUI-/Workflow-Teil live.
