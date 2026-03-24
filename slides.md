@@ -123,6 +123,40 @@ Inspiriert von Paolo Perrotta, <i>OpenClaw Architecture, Explained: How It Works
 layout: two-cols
 ---
 
+# Nicht nur Personal Assistant
+## Auch als Multi-Agent-Team denkbar
+
+<div class="mt-5 space-y-2 text-base leading-7">
+
+- dieselbe Runtime kann auch <b>mehrere spezialisierte Agenten</b> koordinieren
+- z. B. Strategie, Dev, Marketing, Business mit <b>geteiltem Kontext</b>
+- ein gemeinsamer Chat fungiert dann als <b>Control Plane</b>
+- für mich spannend: <b>gleiche Plattform, anderer Organisationsmodus</b>
+
+</div>
+
+<div class="note mt-5">
+Heute zeige ich die <b>Personal-Assistant-Variante</b> — aber das Modell skaliert auch in Richtung <b>Agent-Team</b>.
+</div>
+
+::right::
+
+<div class="card mt-4">
+  <div class="card-title">Pattern</div>
+  <div class="text-sm mt-2 leading-6">
+    Shared memory + private agent context + zentrale Nachrichtensteuerung
+  </div>
+</div>
+
+<div class="source mt-5">
+Weiterlesen: <a href="https://github.com/hesamsheikh/awesome-openclaw-usecases" target="_blank">awesome-openclaw-usecases</a><br>
+Use Case: <a href="https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/multi-agent-team.md" target="_blank">multi-agent-team.md</a>
+</div>
+
+---
+layout: two-cols
+---
+
 # Beispiel 1
 ## Tagessteuerung über WhatsApp
 
