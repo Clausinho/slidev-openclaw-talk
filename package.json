@@ -8,6 +8,8 @@
     "export": "slidev export"
   },
   "devDependencies": {
-    "@slidev/cli": "latest"
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.58.2"
   }
 }
