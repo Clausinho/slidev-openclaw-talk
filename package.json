@@ -6,6 +6,7 @@
     "dev": "slidev --open",
     "build": "slidev build",
     "build:pages": "slidev build --base /slidev-openclaw-talk/",
+    "build:pages:all": "rm -rf dist && slidev build --base /slidev-openclaw-talk/ --out dist && slidev build slides-en.md --base /slidev-openclaw-talk/en/ --out dist/en",
     "export": "slidev export"
   },
   "devDependencies": {

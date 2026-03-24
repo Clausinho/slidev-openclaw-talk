@@ -5,7 +5,8 @@ Kleines Slidev-Deck für die OpenClaw-/ZeitgAIst-Vorstellung.
 ## Live
 
 - GitHub Repo: <https://github.com/Clausinho/slidev-openclaw-talk>
-- GitHub Pages: `https://clausinho.github.io/slidev-openclaw-talk/` *(nach dem ersten erfolgreichen Pages-Deploy)*
+- German deck: `https://clausinho.github.io/slidev-openclaw-talk/`
+- English deck: `https://clausinho.github.io/slidev-openclaw-talk/en/`
 
 ## Start lokal
 
